@@ -4,17 +4,13 @@
 #include <iostream>
 #include <fstream>
 using namespace std;
-constexpr unsigned int str2int(const char* str, int h = 0)
-{
-	return !str[h] ? 5381 : (str2int(str, h + 1) * 33) ^ str[h];
-}
 int login()
 {
 	string username;
 	string password;
 	int loginAttempt = 0;
 
-	while (loginAttempt<5) {
+	while (loginAttempt < 5) {
 		cout << "*****************************************" << endl;
 		cout << "                  Login                  " << endl;
 		cout << "*****************************************" << endl;
@@ -24,11 +20,11 @@ int login()
 		cin >> password;
 
 		if (username == "user" && password == "pass") {
-			cout << "Welcome";
+			cout << "Welcome" << endl;
 			break;
 		}
 		else {
-			cout << "Please check your username or password"<<endl;
+			cout << "Please check your username or password" << endl;
 			loginAttempt++;
 		}
 	}
@@ -36,9 +32,19 @@ int login()
 		cout << "Too many login";
 		return 0;
 	}
-		
+
 }
 void addRecord() {
+	string firstname, lastname, course, address;
+
+	cout << "First Name" << endl;
+	cin >> firstname;
+	cout << "Last Name" << endl;
+	cin >> lastname;
+	cout << "Course" << endl;
+	cin >> course;
+	cout << "Address" << endl;
+	cin >> address;
 }
 void viewRecord() {
 }
@@ -68,8 +74,8 @@ int main() {
 		}
 		break;
 	}
-	
-	
+
+
 
 }
 
