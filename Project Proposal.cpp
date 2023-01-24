@@ -4,6 +4,10 @@
 #include <iostream>
 #include <fstream>
 using namespace std;
+constexpr unsigned int str2int(const char* str, int h = 0)
+{
+	return !str[h] ? 5381 : (str2int(str, h + 1) * 33) ^ str[h];
+}
 int login()
 {
 	string username;
@@ -34,16 +38,38 @@ int login()
 	}
 		
 }
+void addRecord() {
+}
+void viewRecord() {
+}
 int main() {
 	login();
 
 	ofstream MyFile("Database.txt");
 	MyFile.close();
+
+	while (true) {
+		cout << "1.ADD RECORD" << endl;
+		cout << "2.VIEW RECORD" << endl;
+		cout << "3. EXIT" << endl;
+		int userinput;
+		cin >> userinput;
+		switch (userinput) {
+		case 1:
+			addRecord();
+			continue;
+		case 2:
+			viewRecord();
+			continue;
+		case 3:
+			break;
+		default:
+			cout << "NOT IN THE CHOICES";
+		}
+		break;
+	}
 	
-	while (1)
-		cout << "1.ADD RECORD"; endl;
-
-
+	
 
 }
 
