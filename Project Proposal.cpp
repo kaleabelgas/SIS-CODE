@@ -19,7 +19,7 @@ int login()
 		cout << "\nEnter Password :";
 		cin >> password;
 
-		if (username == "user", password == "pass") {
+		if (username == "user" && password == "pass") {
 			cout << "Welcome";
 			break;
 		}
@@ -39,6 +39,12 @@ int main() {
 
 	ofstream MyFile("Database.txt");
 	MyFile.close();
+	
+	while (1)
+		cout << "1.ADD RECORD"; endl;
+
+
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
