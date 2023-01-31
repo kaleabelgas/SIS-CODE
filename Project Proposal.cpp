@@ -77,6 +77,7 @@ int main() {
 	login();
 
 	while (true) {
+		system("cls");
 		cout << "Student Information System" << endl;
 		cout << "1.ADD RECORD" << endl;
 		cout << "2.VIEW RECORD" << endl;
