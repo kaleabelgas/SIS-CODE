@@ -49,15 +49,7 @@ void addRecord() {
 	cin >> address;
 
 	fstream myFile;
-	myFile.open("Database.txt", ios::out);
-	if (myFile.is_open()) {
 
-		myFile << "FirstName: " << firstname << endl;
-		myFile << "LastName: " << lastname << endl;
-		myFile << "Course: " << course << endl;
-		myFile << "Address: " << address<< endl;
-		myFile.close();
-	}
 	myFile.open("Database.txt", ios::app);
 	if (myFile.is_open()) {
 
@@ -80,7 +72,6 @@ void viewRecord() {
 		}
 		myFile.close();
 	}
-	system("cls");
 }
 int main() {
 	login();

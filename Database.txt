@@ -1,8 +1,4 @@
-FirstName: dsa
-LastName: ds
-Course: dcet
-Address: 2-1
-FirstName: dsa
-LastName: ds
-Course: dcet
-Address: 2-1
+FirstName: 1
+LastName: 1
+Course: 1
+Address: 1
