@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <string>
 using namespace std;
 int login()
 {
@@ -32,29 +33,60 @@ int login()
 		cout << "Too many login";
 		return 0;
 	}
-
+	system("cls");
 }
 void addRecord() {
+
 	string firstname, lastname, course, address;
 
-	cout << "First Name" << endl;
+	cout << "FirstName" << endl;
 	cin >> firstname;
-	cout << "Last Name" << endl;
+	cout << "LastName" << endl;
 	cin >> lastname;
 	cout << "Course" << endl;
 	cin >> course;
 	cout << "Address" << endl;
 	cin >> address;
+
+	fstream myFile;
+	myFile.open("Database.txt", ios::out);
+	if (myFile.is_open()) {
+
+		myFile << "FirstName: " << firstname << endl;
+		myFile << "LastName: " << lastname << endl;
+		myFile << "Course: " << course << endl;
+		myFile << "Address: " << address<< endl;
+		myFile.close();
+	}
+	myFile.open("Database.txt", ios::app);
+	if (myFile.is_open()) {
+
+		myFile << "FirstName: " << firstname << endl;
+		myFile << "LastName: " << lastname << endl;
+		myFile << "Course: " << course << endl;
+		myFile << "Address: " << address << endl;
+		myFile.close();
+	}
+	system("cls");
 }
+
 void viewRecord() {
+	fstream myFile;
+	myFile.open("Database.txt", ios::in);
+	if (myFile.is_open()) {
+		string line;
+		while (getline(myFile, line)) {
+			cout << line << endl;
+		}
+		myFile.close();
+	}
+	system("cls");
 }
 int main() {
 	login();
 
-	ofstream MyFile("Database.txt");
-	MyFile.close();
-
 	while (true) {
+		cout << "Student Information System" << endl;
 		cout << "1.ADD RECORD" << endl;
 		cout << "2.VIEW RECORD" << endl;
 		cout << "3. EXIT" << endl;
@@ -62,22 +94,25 @@ int main() {
 		cin >> userinput;
 		switch (userinput) {
 		case 1:
+			system("cls");
 			addRecord();
 			continue;
 		case 2:
+			system("cls");
 			viewRecord();
 			continue;
 		case 3:
+			system("cls");
+			cout << "Thankyou" << endl;
 			break;
 		default:
 			cout << "NOT IN THE CHOICES";
 		}
 		break;
 	}
-
-
-
+	
 }
+
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
